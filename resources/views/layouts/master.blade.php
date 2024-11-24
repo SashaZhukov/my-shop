@@ -11,8 +11,8 @@
 </head>
 <body>
 <section>
-    <!--header-->
-    @yield('header')
+    <!--nav-->
+    @yield('nav')
 
     <!--content-->
     @yield('content')
