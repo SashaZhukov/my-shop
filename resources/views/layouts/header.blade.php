@@ -11,7 +11,7 @@
 
     <div class="flex items-center gap-[20px]">
         <a class="flex items-center gap-1" href=""><img class="w-[25px] h-[25px] invert-[100%]" src="{{ asset('storage') . '/images/loupe.png' }}"></a>
-        <a class="flex items-center gap-1" href=""><img class="w-[25px] h-[25px] invert-[100%]" src="{{ asset('storage') . '/images/shopping-cart.png' }}"></a>
+        <a class="flex items-center gap-1" href=""><img class="w-[25px] h-[25px] invert-[100%]" src="{{ asset('storage') . '/images/shopping.cart.png' }}"></a>
         @if(\Illuminate\Support\Facades\Auth::check())
         <a class="flex items-center gap-1" href="{{ route('register.index') }}"><img class="w-[25px] h-[25px] invert-[100%]" src="{{ asset('storage') . '/images/account.png' }}"></a>
         @else
