@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -18,12 +20,14 @@ class LoginController extends Controller
             return redirect()->route('homePage')->withErrors('You are already logged in!');
         }
 
-        $credentials = $request->only('email', 'password');
+        $user = User::where('email', $request->get('nameOrEmail'))
+            ->orWhere('name', request('nameOrEmail'))
+            ->first();
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+        if ($user && Hash::check($request->get('password'), $user->password)) {
+            Auth::login($user);
 
-            return redirect()->intended('/');
+            return redirect()->route('homePage');
         }
 
         return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
