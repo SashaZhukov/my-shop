@@ -21,7 +21,7 @@
                     lowest prices. Nothing extra
                 </p>
                 <div class="flex items-center mt-8 gap-5">
-                    <a href="" class="py-[10px] px-6 bg-[#FF00C7] rounded-xl text-white font-semibold">Men</a>
+                    <a href="" class="py-[10px] px-10 bg-[#FF00C7] rounded-xl text-white font-semibold">Men</a>
                     <a href="" class="py-[10px] px-6 bg-[#FF00C7] rounded-xl text-white font-semibold">Women</a>
                 </div>
             </div>

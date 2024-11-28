@@ -23,6 +23,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'email' => 'required|string|email|unique:users,email|max:255',
+            'name' => 'required|string|max:32|min:4',
             'password' => 'required|confirmed|string|min:8|max:32',
             'password_confirmation' => 'required|string|min:8|max:32',
         ];
@@ -39,6 +40,9 @@ class RegisterRequest extends FormRequest
             'password.min' => 'The "password" must be at least 8 characters',
             'password.max' => 'The "password" must be less than 32 characters',
             'password.confirmed' => 'The "password" and confirmation do not match',
+            'name.required' => 'The "name" field must be filled',
+            'name.max' => 'The "name" must be less than 32 characters',
+            'name.min' => 'The "name" must be at least 4 characters',
         ];
     }
 }
