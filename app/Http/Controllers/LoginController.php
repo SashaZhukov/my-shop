@@ -30,6 +30,6 @@ class LoginController extends Controller
             return redirect()->route('homePage');
         }
 
-        return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+        return redirect()->back()->withErrors('Wrong password or login!');
     }
 }
