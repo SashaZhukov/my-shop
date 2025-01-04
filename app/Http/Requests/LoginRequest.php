@@ -22,7 +22,7 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nameOrEmail' => 'required|string|max:255|min:4',
+            'loginOrEmail' => 'required|string|max:255|min:4',
             'password' => 'required|string|min:8|max:32',
         ];
     }
@@ -30,8 +30,8 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'nameOrEmail.required' => 'The “email” field must be filled',
-            'nameOrEmail.max' => 'The email must be less than 255 characters',
+            'loginOrEmail.required' => 'The “email” field must be filled',
+            'loginOrEmail.max' => 'The email must be less than 255 characters',
             'password.required' => 'The "password" field must be filled',
             'password.min' => 'The "password" must be at least 8 characters',
             'password.max' => 'The "password" must be less than 32 characters',

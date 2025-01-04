@@ -7,7 +7,9 @@ use App\Http\Requests\admin\CreateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\admin\UserService;
+use http\Url;
 use \Illuminate\Http\Request;
+use function Laravel\Prompts\error;
 
 class AdminUserController extends Controller
 {
@@ -25,6 +27,13 @@ class AdminUserController extends Controller
         return view('admin.users.list', compact('users'));
     }
 
+    public function view($id)
+    {
+        $user = User::with('address')->find($id);
+
+        return view('admin.users.view', compact('user'));
+    }
+
     public function create()
     {
         $roles = Role::all();
@@ -39,5 +48,32 @@ class AdminUserController extends Controller
         $this->userService->createUser($data);
 
         return redirect()->route('users.index');
+    }
+
+    public function edit(Request $request, User $user)
+    {
+        if ($request->get('block') == 'personalInfo') {
+            $block = $request->get('block');
+            return view('admin.users.userEdit.personalInfo', compact('user', 'block'));
+        }
+
+        if ($request->get('block') == 'userAddress') {
+            $user = User::with('address')->find($user->id);
+            $block = $request->get('block');
+            return view('admin.users.userEdit.AddressEdit', compact('user', 'block'));
+        }
+    }
+
+    public function update(Request $request, User $user, string $block)
+    {
+        $filteredData = $this->userService->filterUserData($request->except(['_token', '_method']), $user, $block);
+
+        if (empty($filteredData)) {
+            return redirect()->route('user.view', $user);
+        }
+
+        $this->userService->updatePersonalInfo($filteredData, $user, $block);
+
+        return redirect()->route('user.view', $user);
     }
 }

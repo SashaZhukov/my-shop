@@ -12,6 +12,9 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
         Route::get('/', [AdminUserController::class, 'index'])->name('users.index');
         Route::get('/create', [AdminUserController::class, 'create'])->name('user.create');
         Route::post('/', [AdminUserController::class, 'store'])->name('user.store');
+        Route::get('/{id}/view', [AdminUserController::class, 'view'])->name('user.view');
+        Route::get('/{user}/edit', [AdminUserController::class, 'edit'])->name('user.edit');
+        Route::patch('/{user}/{block}', [AdminUserController::class, 'update'])->name('user.update');
     });
 
     Route::prefix('roles')->group(function () {

@@ -1,17 +1,17 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('nav')
     @include('admin.layouts.navigation')
 @endsection
 @section('content')
-    <header class="flex flex-row relative top-[45px]">
+    <header class="flex flex-row top-[45px]">
         <div>
-            <h1 class="left-[365px] absolute text-black font-bold text-[32px] leading-normal">Users Page</h1>
+            <h1 class="left-[365px] absolute text-black font-bold text-[32px] leading-normal">Roles Page</h1>
         </div>
         <div class="absolute right-[110px]">
             <button type="submit" class="bg-blueviolet py-1.5 px-3 rounded-[10px] text-[18px] font-light leading-normal mt-[10px]"><a href="{{ route('role.create') }}" class="text-white">Add role</a></button>
         </div>
     </header>
-    <main class="relative flex flex-col left-[365px] top-[150px] w-[1000px] shadow-lg">
+    <main class="absolute flex flex-col left-[365px] top-[150px] w-[1000px] shadow-lg">
         <table class="w-[1000px] border-collapse border border-[1px] border-black">
             <thead class="bg-gray-800">
             <tr class="">

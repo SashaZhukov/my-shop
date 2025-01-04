@@ -8,11 +8,11 @@
     <form action="{{ route('register.store') }}" method="POST" class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm space-y-6">
     @csrf
         <div>
-            <label for="name" class="block font-medium leading-6 text-blueviolet">Name</label>
+            <label for="login" class="block font-medium leading-6 text-blueviolet">Name</label>
             <div class="mt-2">
-                <input type="text" name="name" id="name" class="block w-[350px] border-0 py-1.5 text-gray shadow-sm ring-1 ring-inset ring-gray-300 rounded-md placeholder:text-gray-400 placeholder:font-light  placeholder:text-[15px]" placeholder="Enter Name">
+                <input type="text" name="login" id="login" class="block w-[350px] border-0 py-1.5 text-gray shadow-sm ring-1 ring-inset ring-gray-300 rounded-md placeholder:text-gray-400 placeholder:font-light  placeholder:text-[15px]" placeholder="Enter Name">
             </div>
-            @error('name')
+            @error('login')
             <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
             @enderror
         </div>

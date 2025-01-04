@@ -1,9 +1,9 @@
-@extends('layouts.master')
+@extends('admin.layouts.master')
 @section('nav')
     @include('admin.layouts.navigation')
 @endsection
 @section('content')
-    <header class="flex flex-row relative top-[45px]">
+    <header class="flex flex-row top-[45px]">
         <div>
             <h1 class="left-[365px] absolute text-black font-bold text-[32px] leading-normal">Users Page</h1>
         </div>
@@ -29,7 +29,7 @@
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->name }}</td>
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->email }}</td>
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ getUserRole($user->id) }}</td>
-                        <td class="font-medium text-blueviolet text-[18px] py-[12px] px-[15px]"><a href="">More</a></td>
+                        <td class="font-medium text-blueviolet text-[18px] py-[12px] px-[15px]"><a href="{{ route('user.view', $user->id) }}">More</a></td>
                     </tr>
                 @endforeach
             </tbody>
