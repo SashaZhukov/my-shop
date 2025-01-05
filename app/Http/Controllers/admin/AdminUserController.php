@@ -62,6 +62,12 @@ class AdminUserController extends Controller
             $block = $request->get('block');
             return view('admin.users.userEdit.AddressEdit', compact('user', 'block'));
         }
+
+        if ($request->get('block') == 'securityAndOther') {
+            $block = $request->get('block');
+            $roles = Role::all();
+            return view('admin.users.userEdit.securityAndOther', compact('user', 'block', 'roles'));
+        }
     }
 
     public function update(Request $request, User $user, string $block)

@@ -4,8 +4,11 @@ namespace App\Services\admin;
 
 use App\Models\Role;
 use App\Models\User;
+use App\Models\User_Role;
 use App\Models\UserAddress;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use function Laravel\Prompts\error;
 
 class UserService
@@ -13,8 +16,11 @@ class UserService
     public function createUser(array $data)
     {
         $user = User::create([
-        'name' => $data['name'],
+        'login' => $data['login'],
         'email' => $data['email'],
+        'first_name' => $data['first_name'],
+        'last_name' => $data['last_name'],
+        'phone' => $data['phone'],
         'password' => bcrypt($data['password']),
         ]);
 
@@ -37,6 +43,16 @@ class UserService
         if ($block === 'userAddress') {
             return collect($request)->filter(function ($value, $key) use ($user) {
                 return $value !== null && $value !== '' && $value !== $user->address->{$key};
+            })->toArray();
+        }
+
+        if ($block === 'securityAndOther') {
+            return collect($request)->filter(function ($value, $key) use ($user) {
+                if ($key === 'role') {
+                    return $value !== getUserRole($user->id);
+                } elseif ($key === 'password') {
+                    return $value !== $user->password;
+                }
             })->toArray();
         }
     }
@@ -65,8 +81,24 @@ class UserService
             ])->validate();
 
             $address = UserAddress::where('user_id', $user->id);
-            
+
             $address->update($validatetData);
+        }
+
+        if ($block === 'securityAndOther') {
+            $validatetData = validator($data, [
+                'role' => ['string', 'max:32'],
+                'password' => ['string', 'min:8', 'max:32'],
+            ])->validate();
+
+            if (array_key_exists('role', $validatetData)) {
+                $user->syncRoles([]);
+                $user->assignRole($validatetData['role']);
+            }
+
+            if (array_key_exists('password', $validatetData)) {
+                $user->update(['password' => Hash::make($validatetData['password'])]);
+            }
         }
     }
 }

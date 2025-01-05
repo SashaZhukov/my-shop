@@ -26,21 +26,21 @@
                     <input name="first_name" id="first_name" class="w-[300px] mt-[10px] rounded-[10px]" placeholder="Enter first name">
                 </div>
                 @error('first_name')
-                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]"></div>
+                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
                 @enderror
                 <div class="flex flex-col mt-[15px]">
                     <label class="text-blueviolet text-[20px] font-medium leading-normal">Last name</label>
                     <input  name="last_name" id="last_name" class="w-[300px] mt-[10px] rounded-[10px]" placeholder="Enter last name">
                 </div>
                 @error('last_name')
-                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]"></div>
+                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
                 @enderror
                 <div class="flex flex-col mt-[15px]">
                     <label class="text-blueviolet text-[20px] font-medium leading-normal">Phone</label>
                     <input  name="phone" id="phone" class="w-[300px] mt-[10px] rounded-[10px]" placeholder="Enter phone">
                 </div>
                 @error('phone')
-                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]"></div>
+                <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
                 @enderror
                 <div class="flex flex-col mt-[15px]">
                     <label class="text-blueviolet text-[20px] font-medium leading-normal">Enter password</label>

@@ -16,7 +16,7 @@
             <thead class="bg-gray-800 2">
                 <tr>
                     <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px] left-[20px]">ID</th>
-                    <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px]">Name</th>
+                    <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px]">Login</th>
                     <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px]">Maile</th>
                     <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px]">Role</th>
                     <th class="text-white font-bold text-[24px] text-left py-[12px] px-[15px]"></th>
@@ -26,7 +26,7 @@
                 @foreach($users as $user)
                     <tr>
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->id }}</td>
-                        <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->name }}</td>
+                        <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->login }}</td>
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $user->email }}</td>
                         <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ getUserRole($user->id) }}</td>
                         <td class="font-medium text-blueviolet text-[18px] py-[12px] px-[15px]"><a href="{{ route('user.view', $user->id) }}">More</a></td>

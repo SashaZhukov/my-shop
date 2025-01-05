@@ -24,14 +24,6 @@ class User extends Authenticatable
         'phone',
     ];
 
-    protected $attributes = [
-        'password' => '',
-    ];
-
-    public function setPasswordAttribute($value) {
-        $this->attributes['password'] = bcrypt($value);
-    }
-
     public function address() : HasOne
     {
         return $this->hasOne(UserAddress::class, 'user_id', 'id');
