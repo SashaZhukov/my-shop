@@ -7,7 +7,7 @@ use App\Http\Requests\admin\CreateRoleRequest;
 use App\Models\Role;
 use App\Services\admin\RoleService;
 
-class AdminRolesController extends Controller
+class RolesController extends Controller
 {
 
     private $roleService;

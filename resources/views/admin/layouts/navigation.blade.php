@@ -11,6 +11,12 @@
             @endif
         </div>
         <div class="flex flex-row relative">
+            <a href="{{ route('admin.profile') }}" class="text-white text-[20px] font-medium leading-normal">My Profile</a>
+            @if(str_starts_with(request()->getRequestUri(), '/admin/profile'))
+                <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
+            @endif
+        </div>
+        <div class="flex flex-row relative">
             <a href="{{ route('users.index') }}" class="text-white text-[20px] font-medium leading-normal">Users</a>
             @if(str_starts_with(request()->getRequestUri(), '/admin/users'))
                 <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
