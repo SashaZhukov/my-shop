@@ -57,7 +57,7 @@
                 <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
                 @enderror
                 <div class="flex flex-col mt-[15px]">
-                    <label class="text-blueviolet text-[20px] font-medium leading-normal">Chose role</label>
+                    <label class="text-blueviolet text-[20px] font-medium leading-normal">Choose role</label>
                     <div class="flex flex-row relative items-center mt-[8px]">
                         <select class="border-blueviolet rounded-[10px]" name="role">
                             @foreach($roles as $role)

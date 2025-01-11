@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\admin;
 
+use App\Rules\StartsWithUpperCase;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreateUserRequest extends FormRequest
@@ -24,8 +25,8 @@ class CreateUserRequest extends FormRequest
         return [
             'email' => 'required|string|email|unique:users,email|max:255',
             'login' => 'required|string|max:32|min:2|unique:users,login',
-            'first_name' => 'required|string|max:32',
-            'last_name' => 'required|string|max:32',
+            'first_name' => ['required', 'string', 'max:32', 'min:2', new StartsWithUpperCase],
+            'last_name' => ['required', 'string', 'max:32', 'min:2', new StartsWithUpperCase],
             'phone' => 'required|string|max:32|unique:users,phone',
             'password' => 'required|confirmed|string|min:8|max:32',
             'password_confirmation' => 'required|string|min:8|max:32',
@@ -50,8 +51,12 @@ class CreateUserRequest extends FormRequest
             'login.unique' => 'The "name" must be unique',
             'first_name.required' => 'The "First name" field must be filled',
             'first_name.max' => 'The "First name" must be less than 32 characters',
+            'first_name.min' => 'The "First name" must be at least 2 characters',
+            'first_name.startsWithUpperCase' => 'Your custom message for first_name',
             'last_name.required' => 'The "Last name" field must be filled',
             'last_name.max' => 'The "Last name" must be less than 32 characters',
+            'last_name.min' => 'The "Last name" must be at least 2 characters',
+            'last_name.startsWithUpperCase' => 'Your custom message for first_name',
             'phone.required' => 'The "Phone" field must be filled',
             'phone.max' => 'The "Phone" must be less than 32 characters',
             'phone.unique' => 'The "Phone" must be unique',

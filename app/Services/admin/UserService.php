@@ -4,16 +4,13 @@ namespace App\Services\admin;
 
 use App\Models\Role;
 use App\Models\User;
-use App\Models\User_Role;
 use App\Models\UserAddress;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
-use function Laravel\Prompts\error;
 
 class UserService
 {
-    public function createUser(array $data)
+    public function createUser(array $data) : void
     {
         $user = User::create([
         'login' => $data['login'],

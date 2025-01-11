@@ -6,7 +6,7 @@ use App\Models\Role;
 
 class RoleService
 {
-    public function createRole(array $data)
+    public function createRole(array $data) : void
     {
         Role::create([
            'name' => $data['name'],

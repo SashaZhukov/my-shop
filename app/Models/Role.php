@@ -14,6 +14,7 @@ class Role extends Model
         'guard_name',
         ];
 
+
     static function getRoleId(string $name)
     {
         $role = Role::where('name', $name)->first();

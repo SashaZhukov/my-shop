@@ -7,11 +7,9 @@ use App\Http\Requests\admin\CreateUserRequest;
 use App\Models\Role;
 use App\Models\User;
 use App\Services\admin\UserService;
-use http\Url;
 use \Illuminate\Http\Request;
-use function Laravel\Prompts\error;
 
-class AdminUserController extends Controller
+class UserController extends Controller
 {
     protected $userService;
 
