@@ -28,8 +28,8 @@
                 <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
             @endif
         </div>
-        <div class="flex flex-row relative">
-            <a href="" class="text-white text-[20px] font-medium leading-normal">Products</a>
+        <div class="flex flex-row relative" id="dropdown">
+            <a href="{{ route('admin.store.index') }}" class="text-white text-[20px] font-medium leading-normal" id="button">Products</a>
             @if(str_starts_with(request()->getRequestUri(), '/admin/products'))
                 <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
             @endif

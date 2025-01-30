@@ -34,4 +34,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserAddress::class, 'user_id', 'id');
     }
+
+    public function store() : hasOne
+    {
+        return $this->hasOne(Store::class, 'owner_id', 'id');
+    }
 }
