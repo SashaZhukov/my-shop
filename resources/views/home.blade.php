@@ -10,7 +10,7 @@
     <title>MyShop</title>
 </head>
 <body>
-<section class="bg-heroGradient h-[2000px]">
+<section class="bg-heroGradient h-screen">
     @include('layouts.header')
     <section>
         <div class="max-w-[1250px] mx-auto grid grid-cols-2 pt-32">

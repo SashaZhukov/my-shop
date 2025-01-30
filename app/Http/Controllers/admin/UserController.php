@@ -21,8 +21,15 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $columns = [
+            'id' => 'ID',
+            'login' => 'Login',
+            'email' => 'Email',
+            'role' => 'Role',
+        ];
+        $moreRoute = 'user.view';
 
-        return view('admin.users.list', compact('users'));
+        return view('admin.users.list', compact('users', 'columns', 'moreRoute'));
     }
 
     public function view($id)

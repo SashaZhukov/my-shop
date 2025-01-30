@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\ProfileController;
-use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\RolesController;
+use App\Http\Controllers\admin\StoreController;
+use App\Http\Controllers\admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->middleware(['role:admin'])->group(function () {
@@ -29,5 +30,9 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
         Route::get('/', [RolesController::class, 'index'])->name('roles.index');
         Route::get('/create', [RolesController::class, 'create'])->name('role.create');
         Route::post('/', [RolesController::class, 'store'])->name('role.store');
+    });
+
+    Route::prefix('products')->group(function () {
+        Route::get('/stores/', [StoreController::class, 'index'])->name('admin.store.index');
     });
 });

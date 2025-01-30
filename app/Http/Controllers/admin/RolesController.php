@@ -20,8 +20,16 @@ class RolesController extends Controller
     public function index()
     {
         $roles = Role::all();
+        $columns = [
+            'id' => 'ID',
+            'name' => 'Name',
+            'guard_name' => 'Guard Name',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+        ];
+        $moreRoute = '';
 
-        return view('admin.roles.list', compact('roles'));
+        return view('admin.roles.list', compact('roles', 'columns'));
     }
 
     public function create()
