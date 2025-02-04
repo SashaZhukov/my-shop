@@ -14,7 +14,7 @@
             <div class="text-red-600 font-semibold leading-6 mt-2 text-[15px]">{{ $message }}</div>
             @enderror
             <div class="mt-[30px] flex justify-center">
-                <button type="submit" class="bg-blueviolet px-[18px] py-[5px] text-white text-[19px] rounded-[10px] font-medium">Create user</button>
+                <button type="submit" class="bg-blueviolet px-[18px] py-[5px] text-white text-[19px] rounded-[10px] font-medium">Create role</button>
             </div>
         </form>
     </div>

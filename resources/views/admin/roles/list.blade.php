@@ -12,7 +12,7 @@
         </div>
     </header>
     <main class="flex flex-col mt-10 min-w-fit shadow-lg">
-         <x-admin-list-table :essences="$roles" :columns="$columns" />
+         <x-admin-list-table :entities="$roles"/>
     </main>
 @endsection
 

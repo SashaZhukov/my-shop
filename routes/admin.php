@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\HomeController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\RolesController;
@@ -32,7 +33,12 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
         Route::post('/', [RolesController::class, 'store'])->name('role.store');
     });
 
-    Route::prefix('products')->group(function () {
-        Route::get('/stores/', [StoreController::class, 'index'])->name('admin.store.index');
+    Route::prefix('stores')->group(function () {
+        Route::get('/', [StoreController::class, 'index'])->name('stores.index');
+
+
+        Route::get('/category/', [CategoryController::class, 'index'])->name('category.index');
+        Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+        Route::post('/category/', [CategoryController::class, 'store'])->name('category.store');
     });
 });

@@ -14,11 +14,11 @@
             <img src="{{ asset('storage') . '/images/filter.png' }}" class="w-7 h-7">
         </div>
         <div class="ml-auto mt-[3px]">
-            <button type="submit" class="bg-blueviolet py-1.5 px-3 rounded-[10px] text-[18px] font-light"><a href="{{ route('user.create') }}" class="text-white">Add user</a></button>
+            <button type="submit" class="bg-blueviolet py-1.5 px-3 rounded-[10px] text-[18px] font-light"><a href="{{ route('user.create') }}" class="text-white">Add store</a></button>
         </div>
     </header>
     <main class="flex flex-col mt-10 min-w-fit shadow-lg">
-        <x-admin-list-table :essences="$stores" :columns="$columns"/>
+        <x-admin-list-table :entities="$stores"/>
     </main>
 @endsection
 

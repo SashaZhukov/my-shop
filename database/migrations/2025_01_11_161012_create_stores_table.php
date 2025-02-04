@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('phone')->unique();
             $table->unsignedBigInteger('owner_id')->unique();
-            $table->string('working_hours')->nullable();
             $table->string('category_id')->nullable();
             $table->float('rating')->default(0);
 
