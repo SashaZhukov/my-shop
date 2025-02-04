@@ -8,7 +8,7 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($essences as $item)
+    @foreach($entities as $item)
         <tr class="border border-[1px] border-black">
             @foreach($columns as $key => $column)
                 @if($key == 'role')

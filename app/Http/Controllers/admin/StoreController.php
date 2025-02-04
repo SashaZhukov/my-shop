@@ -11,14 +11,9 @@ class StoreController extends Controller
     public function index() : View
     {
         $stores = Store::all();
-        $columns = [
-            'id' => 'ID',
-            'name' => 'Name',
-            'category' => 'Category',
-            'phone' => 'Phone',
-        ];
+
         $moreRoute = 'admin.stores.view';
 
-        return view('admin.products.stores.list', compact('stores', 'columns', 'moreRoute'));
+        return view('admin.products.stores.list', compact('stores', 'moreRoute'));
     }
 }
