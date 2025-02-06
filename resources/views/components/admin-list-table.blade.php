@@ -13,8 +13,10 @@
             @foreach($columns as $key => $column)
                 @if($key == 'role')
                     <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ getUserRole($item->id) }}</td>
+                @elseif($key == 'category_id')
+                    <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ getCategoryName($item->category_id) }}</td>
                 @else()
-                <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $item[$key] }}</td>
+                    <td class="font-medium text-[18px] py-[12px] px-[15px]">{{ $item[$key] }}</td>
                 @endif
             @endforeach
             @if(!empty($moreRoute))

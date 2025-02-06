@@ -12,14 +12,14 @@ class AdminListTable extends Component
     public $entities;
     public $columns;
     public $moreRoute;
-    public function __construct(Collection $entities, string $moreRoute = '')
+    public function __construct(Collection $entities)
     {
         $this->entities = $entities;
         $this->columns = $this->defineColumns();
-        $this->moreRoute = $moreRoute;
+        $this->moreRoute = $this->defineMoreRoute();
     }
 
-    public function defineColumns()
+    public function defineColumns() : array
     {
         $model = $this->entities->first();
 
@@ -40,7 +40,7 @@ class AdminListTable extends Component
             \App\Models\Store::class => [
                 'id' => 'ID',
                 'name' => 'Name',
-                'category' => 'Category',
+                'category_id' => 'Category',
                 'phone' => 'Phone',
             ],
             \App\Models\Category::class => [
@@ -50,6 +50,15 @@ class AdminListTable extends Component
                 'updated_at' => 'Updated At',
             ],
             default => [],
+        };
+    }
+
+    public function defineMoreRoute() : string
+    {
+        $model = $this->entities->first();
+
+        return match ($model ? get_class($model) : null) {
+            \App\Models\User::class => 'user.view',
         };
     }
 

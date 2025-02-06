@@ -5,12 +5,6 @@
 
     <nav class="flex flex-col relative gap-[20px] left-[20px] top-[75px]">
         <div class="flex flex-row relative">
-            <a href="{{ route('admin.home') }}" class="text-white text-[20px] font-medium leading-normal">Home</a>
-            @if(Route::currentRouteName() === 'admin.home')
-                <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
-            @endif
-        </div>
-        <div class="flex flex-row relative">
             <a href="{{ route('admin.profile') }}" class="text-white text-[20px] font-medium leading-normal">My Profile</a>
             @if(Route::currentRouteName() === 'admin.profile')
                 <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
@@ -18,7 +12,7 @@
         </div>
         <div class="flex flex-row relative">
             <a href="{{ route('users.index') }}" class="text-white text-[20px] font-medium leading-normal">Users</a>
-            @if(Route::currentRouteName() === 'users.index')
+            @if(Request::is('admin/users*'))
                 <div class="h-[30px] bg-white w-[4px] absolute rounded-[40px] right-[30px]"></div>
             @endif
         </div>
