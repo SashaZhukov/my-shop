@@ -6,7 +6,7 @@ use App\Models\Category;
 
 class CategoryService
 {
-    public function create($data) : void
+    public function create(array $data) : void
     {
         Category::create([
             'name' => $data['name'],

@@ -25,6 +25,8 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
         Route::get('/{id}/view', [UserController::class, 'view'])->name('user.view');
         Route::get('/{user}/edit', [UserController::class, 'edit'])->name('user.edit');
         Route::patch('/{user}/{block}', [UserController::class, 'update'])->name('user.update');
+        Route::get('/search-suggestions', [UserController::class, 'getSuggestion'])->name('user.search.suggestions');
+        Route::get('/search', [UserController::class, 'search'])->name('user.search');
     });
 
     Route::prefix('roles')->group(function () {
@@ -35,6 +37,8 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
 
     Route::prefix('stores')->group(function () {
         Route::get('/', [StoreController::class, 'index'])->name('stores.index');
+        Route::get('/create', [StoreController::class, 'create'])->name('store.create');
+        Route::post('/', [StoreController::class, 'store'])->name('store.store');
 
 
         Route::get('/category/', [CategoryController::class, 'index'])->name('category.index');

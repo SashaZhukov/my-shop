@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\admin\MakeCategoryRequest;
+use App\Http\Requests\admin\CreateRoleRequest;
 use App\Models\Category;
 use App\Services\admin\CategoryService;
 use Illuminate\View\View;
@@ -29,7 +29,7 @@ class CategoryController extends Controller
         return view('admin.products.categories.add ');
     }
 
-    public function store(MakeCategoryRequest $request) : View
+    public function store(CreateRoleRequest $request) : View
     {
         $data = $request->validated();
 
