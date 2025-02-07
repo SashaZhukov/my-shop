@@ -59,6 +59,9 @@ class AdminListTable extends Component
 
         return match ($model ? get_class($model) : null) {
             \App\Models\User::class => 'user.view',
+            \App\Models\Store::class => '',
+            \App\Models\Role::class => '',
+            \App\Models\Category::class => '',
         };
     }
 
