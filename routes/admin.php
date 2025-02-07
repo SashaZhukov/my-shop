@@ -35,14 +35,17 @@ Route::prefix('admin')->middleware(['role:admin'])->group(function () {
         Route::post('/', [RolesController::class, 'store'])->name('role.store');
     });
 
-    Route::prefix('stores')->group(function () {
-        Route::get('/', [StoreController::class, 'index'])->name('stores.index');
-        Route::get('/create', [StoreController::class, 'create'])->name('store.create');
-        Route::post('/', [StoreController::class, 'store'])->name('store.store');
+    Route::prefix('products')->group(function () {
+        Route::prefix('store')->group(function () {
+            Route::get('/', [StoreController::class, 'index'])->name('stores.index');
+            Route::get('/create', [StoreController::class, 'create'])->name('store.create');
+            Route::post('/', [StoreController::class, 'store'])->name('store.store');
+        });
 
-
-        Route::get('/category/', [CategoryController::class, 'index'])->name('category.index');
-        Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
-        Route::post('/category/', [CategoryController::class, 'store'])->name('category.store');
+        Route::prefix('category')->group(function () {
+            Route::get('/category/', [CategoryController::class, 'index'])->name('category.index');
+            Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+            Route::post('/category/', [CategoryController::class, 'store'])->name('category.store');
+        });
     });
 });
